@@ -6,7 +6,6 @@
     <table>
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Titre</th>
                 <th>Date</th>
                 <th>Datemodif</th>
@@ -17,10 +16,9 @@
         <tbody>
         {% for article in articles %}
             <tr>
-                <td><a href="{{ path('article_show', { 'id': article.id }) }}">{{ article.id }}</a></td>
                 <td>{{ article.titre }}</td>
-                <td>{{ article.date }}</td>
-                <td>{{ article.dateModif }}</td>
+                <td>{{ article.date|date('d-m-Y') }}</td>
+                <td>{{ article.dateModif|date('d-m-Y')}}</td>
                 <td>{{ article.contenu }}</td>
                 <td>
                     <ul>

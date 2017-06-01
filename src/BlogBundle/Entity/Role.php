@@ -2,10 +2,12 @@
 
 namespace BlogBundle\Entity;
 
+
+
 /**
  * Role
  */
-class Role
+class Role 
 {
     /**
      * @var integer
@@ -61,7 +63,7 @@ class Role
      */
     public function getRole()
     {
-        return $this->role;
+        return $this->role->toArray();
     }
 
     /**

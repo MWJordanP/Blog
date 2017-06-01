@@ -292,4 +292,11 @@ class Article
     {
         return $this->articleCommentaire;
     }
+
+    public function __toString()
+    {
+
+        return $this->id.'-'.$this->titre.'-'.$this->date.'-'.$this->dateModif.'-'.$this->contenu;
+    }
 }
+

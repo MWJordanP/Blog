@@ -124,8 +124,6 @@ class UserController extends Controller
     {
         $em=$this->getDoctrine()->getManager();
         $users = $em->getRepository('BlogBundle:User')->findAll();
-        $user = $em->getRepository('BlogBundle:User')->find(1);
-        $role= $user->getRole();
         \Doctrine\Common\Util\Debug::dump($role);
         return $this->render('BlogBundle:User:index.html.twig', array('users' => $users, ));
 

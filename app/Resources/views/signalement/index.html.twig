@@ -6,7 +6,7 @@
     <table>
         <thead>
             <tr>
-                <th>Id</th>
+                <th>User</th>
                 <th>Cause</th>
                 <th>Actions</th>
             </tr>
@@ -14,7 +14,6 @@
         <tbody>
         {% for signalement in signalements %}
             <tr>
-                <td><a href="{{ path('signalement_show', { 'id': signalement.id }) }}">{{ signalement.id }}</a></td>
                 <td>{{ signalement.cause }}</td>
                 <td>
                     <ul>
