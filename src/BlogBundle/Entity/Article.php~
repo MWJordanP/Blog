@@ -253,4 +253,50 @@ class Article
     {
         return $this->users;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $articleCommentaire;
+
+
+    /**
+     * Add articleCommentaire
+     *
+     * @param \BlogBundle\Entity\Commentaire $articleCommentaire
+     *
+     * @return Article
+     */
+    public function addArticleCommentaire(\BlogBundle\Entity\Commentaire $articleCommentaire)
+    {
+        $this->articleCommentaire[] = $articleCommentaire;
+
+        return $this;
+    }
+
+    /**
+     * Remove articleCommentaire
+     *
+     * @param \BlogBundle\Entity\Commentaire $articleCommentaire
+     */
+    public function removeArticleCommentaire(\BlogBundle\Entity\Commentaire $articleCommentaire)
+    {
+        $this->articleCommentaire->removeElement($articleCommentaire);
+    }
+
+    /**
+     * Get articleCommentaire
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getArticleCommentaire()
+    {
+        return $this->articleCommentaire;
+    }
+
+    public function __toString()
+    {
+
+        return $this->id.'-'.$this->titre.'-'.$this->date.'-'.$this->dateModif.'-'.$this->contenu;
+    }
 }
+

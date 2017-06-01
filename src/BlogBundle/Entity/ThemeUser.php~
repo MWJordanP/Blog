@@ -109,5 +109,12 @@ class ThemeUser
     {
         return $this->themeofficiel;
     }
-}
 
+
+    //////////////////////////////////////////
+
+    public function __toString()
+    {
+        return $this->getUser();
+    }
+}

@@ -122,13 +122,13 @@ class ThemeOfficielController extends Controller
 
 
 /******************************AJOUT ******************************/
-    public function themeUserAction()
+    /*public function themeUserAction()
     {
         $em=$this->getDoctrine()->getManager();
         $role = $em->getRepository('BlogBundle:ThemeOfficiel')->findAll();
  
         return $this->render('themeOfficiel/index.html.twig', array('user' => $user, 'role' =>$roles(),));
 
-    }
+    }*/
 
 }

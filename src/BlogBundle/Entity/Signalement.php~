@@ -80,4 +80,41 @@ class Signalement
     {
         return $this->userSignalement;
     }
+    /**
+     * @var \BlogBundle\Entity\Article
+     */
+    private $signalementsArticle;
+
+
+    /**
+     * Set signalementsArticle
+     *
+     * @param \BlogBundle\Entity\Article $signalementsArticle
+     *
+     * @return Signalement
+     */
+    public function setSignalementsArticle(\BlogBundle\Entity\Article $signalementsArticle = null)
+    {
+        $this->signalementsArticle = $signalementsArticle;
+
+        return $this;
+    }
+
+    /**
+     * Get signalementsArticle
+     *
+     * @return \BlogBundle\Entity\Article
+     */
+    public function getSignalementsArticle()
+    {
+        return $this->signalementsArticle;
+    }
+
+
+    //////////////////////////////////////////
+
+    public function __toString()
+    {
+        return $this->id.'-'.$this->cause;
+    }
 }

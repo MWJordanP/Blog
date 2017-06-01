@@ -7,7 +7,6 @@
         <thead>
             <tr>
                 <th>Theme</th>
-                <th>Users par theme</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -15,9 +14,6 @@
         {% for themeOfficiel in themeOfficiels %}
             <tr>
                 <td>{{ themeOfficiel.theme }} </td>
-                <td>{% for unuser in themeOfficiel.getUsersThemes() %}
-                    {{ unuser.getUserName() }}
-                    {% endfor %}
                 <td>
                     <ul>
                         <li>

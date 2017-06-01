@@ -1,11 +1,12 @@
 <?php
 
 namespace BlogBundle\Entity;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * User
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var integer
@@ -164,22 +165,105 @@ class User
      */
     public function getRoles()
     {
+        
         return $this->roles->toArray();
+    }
+    
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $articles;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $userCommentaires;
+
+
+    /**
+     * Add article
+     *
+     * @param \BlogBundle\Entity\Article $article
+     *
+     * @return User
+     */
+    public function addArticle(\BlogBundle\Entity\Article $article)
+    {
+        $this->articles[] = $article;
+
+        return $this;
+    }
+
+    /**
+     * Remove article
+     *
+     * @param \BlogBundle\Entity\Article $article
+     */
+    public function removeArticle(\BlogBundle\Entity\Article $article)
+    {
+        $this->articles->removeElement($article);
+    }
+
+    /**
+     * Get articles
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getArticles()
+    {
+        return $this->articles;
+    }
+
+    /**
+     * Add userCommentaire
+     *
+     * @param \BlogBundle\Entity\Commentaire $userCommentaire
+     *
+     * @return User
+     */
+    public function addUserCommentaire(\BlogBundle\Entity\Commentaire $userCommentaire)
+    {
+        $this->userCommentaires[] = $userCommentaire;
+
+        return $this;
+    }
+
+    /**
+     * Remove userCommentaire
+     *
+     * @param \BlogBundle\Entity\Commentaire $userCommentaire
+     */
+    public function removeUserCommentaire(\BlogBundle\Entity\Commentaire $userCommentaire)
+    {
+        $this->userCommentaires->removeElement($userCommentaire);
+    }
+
+    /**
+     * Get userCommentaires
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUserCommentaires()
+    {
+        return $this->userCommentaires;
     }
 
 
     /********************************************************/
+     /********************************************/
+        /*Ajouter les implements et Use*/
 
     public function __toString() {
 
-        return $this->id.'-'.$this->username;
+        return $this->getUsername();
     }
 
+    public function getSalt(){
 
+        return null;
+    }
 
+    public function eraseCredentials(){
+    }
     
-
-
-
-
 }

@@ -155,4 +155,33 @@ class Commentaire
     {
         return $this->commentairesArticle;
     }
+    /**
+     * @var \BlogBundle\Entity\User
+     */
+    private $commentairesUser;
+
+
+    /**
+     * Set commentairesUser
+     *
+     * @param \BlogBundle\Entity\User $commentairesUser
+     *
+     * @return Commentaire
+     */
+    public function setCommentairesUser(\BlogBundle\Entity\User $commentairesUser = null)
+    {
+        $this->commentairesUser = $commentairesUser;
+
+        return $this;
+    }
+
+    /**
+     * Get commentairesUser
+     *
+     * @return \BlogBundle\Entity\User
+     */
+    public function getCommentairesUser()
+    {
+        return $this->commentairesUser;
+    }
 }
