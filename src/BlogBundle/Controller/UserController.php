@@ -123,9 +123,9 @@ class UserController extends Controller
     public function roleUserAction()
     {
         $em=$this->getDoctrine()->getManager();
-        $users = $em->getRepository('BlogBundle:User')->findAll();
+        $users = $em->getRepository('BlogBundle:User')->userRoleTous();
         \Doctrine\Common\Util\Debug::dump($role);
-        return $this->render('BlogBundle:User:index.html.twig', array('users' => $users, ));
+        return $this->render('BlogBundle:User:index.html.twig', array('users' => $users ));
 
     }
     
