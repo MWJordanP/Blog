@@ -13,6 +13,13 @@
                 <th>Password</th>
                 <td>{{ user.password }}</td>
             </tr>
+             <tr>
+                <th>Role</th>
+                    <td>{% for unrole in user.getRoles() %}
+                        {{ unrole.role }}
+                        {% endfor %}
+                    </td>
+            </tr>
         </tbody>
     </table>
 
@@ -22,11 +29,6 @@
         </li>
         <li>
             <a href="{{ path('user_edit', { 'id': user.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
         </li>
     </ul>
 {% endblock %}

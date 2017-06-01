@@ -5,7 +5,7 @@ namespace BlogBundle\Entity;
 /**
  * ThemeOfficiel
  */
-class ThemeOfficiel
+class ThemeOfficiel 
 {
     /**
      * @var integer
@@ -143,10 +143,11 @@ class ThemeOfficiel
 
 
         /********************************************/
+        /*Ajouter les implements et Use*/
 
          public function __toString() {
 
-        return $this->id.'-'.$this->theme;
+        return $this->getTheme();
     }
     
 

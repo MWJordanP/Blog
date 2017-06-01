@@ -1,13 +1,13 @@
 <?php
 
 namespace BlogBundle\Entity;
-
+use Symfony\Component\Security\Core\Role\RoleInterface;
 
 
 /**
  * Role
  */
-class Role 
+class Role implements RoleInterface
 {
     /**
      * @var integer
@@ -63,7 +63,7 @@ class Role
      */
     public function getRole()
     {
-        return $this->role->toArray();
+        return $this->role;
     }
 
     /**
@@ -102,9 +102,13 @@ class Role
 
 
 /*************************************************/
+ /********************************************/
+        /*Ajouter les implements et Use*/
+
+        
     public function __toString() {
 
-        return $this->id.'-'.$this->role;
+        return $this->getRole();
     }
     
 }

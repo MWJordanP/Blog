@@ -113,8 +113,8 @@ class ThemeUser
 
     //////////////////////////////////////////
 
-    /*public function __toString()
+    public function __toString()
     {
-        return $this->id.'-'.$this->cause;
-    }*/
+        return $this->getUser();
+    }
 }

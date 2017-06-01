@@ -11,12 +11,12 @@ namespace BlogBundle\Repository;
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
 
-	public function userRoleTous() {  	
+	/*public function userRoleTous() {  	
 	
 	$queryBuilder = $this->createQueryBuilder('u');
         $this->createQueryBuilder('u')->join('u.roles', 'r')->addSelect('r')->where('r.id = :id');
 
         return $queryBuilder->getQuery()->getResult();
-    }
+    }*/
 
 }

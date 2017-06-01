@@ -15,11 +15,9 @@
         {% for themeOfficiel in themeOfficiels %}
             <tr>
                 <td>{{ themeOfficiel.theme }} </td>
-                <td>{% for user in themeOfficiel.usersThemes %}
-                        {{ user.username }} 
-                        {{ themeOfficiel.userThemes.count }}
+                <td>{% for unuser in themeOfficiel.getUsersThemes() %}
+                    {{ unuser.getUserName() }}
                     {% endfor %}
-                </td>
                 <td>
                     <ul>
                         <li>

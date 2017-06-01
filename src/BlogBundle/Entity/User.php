@@ -1,11 +1,12 @@
 <?php
 
 namespace BlogBundle\Entity;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * User
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var integer
@@ -249,12 +250,20 @@ class User
 
 
     /********************************************************/
+     /********************************************/
+        /*Ajouter les implements et Use*/
 
     public function __toString() {
 
-        return $this->id.'-'.$this->username;
+        return $this->getUsername();
     }
 
+    public function getSalt(){
 
+        return null;
+    }
+
+    public function eraseCredentials(){
+    }
     
 }
