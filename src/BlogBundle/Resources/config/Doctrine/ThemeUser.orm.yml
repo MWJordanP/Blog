@@ -1,0 +1,25 @@
+BlogBundle\Entity\ThemeUser:
+    type: entity
+    table: null
+    repositoryClass: BlogBundle\Repository\ThemeUserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:    
+        critique:
+            type: integer
+            
+        
+
+    manyToOne:
+        user:
+            targetEntity: User   
+        themeofficiel:
+            targetEntity: ThemeOfficiel
+            
+    
+    lifecycleCallbacks: { }
+    

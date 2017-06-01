@@ -1,0 +1,38 @@
+BlogBundle\Entity\User:
+    type: entity
+    table: null
+    repositoryClass: BlogBundle\Repository\UserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        username:
+            type: string
+            length: '20'
+            unique: true
+        password:
+            type: string
+            length: '15'
+            
+        
+    manyToMany:
+        roles:
+            targetEntity: Role
+            inversedBy: users
+    
+    oneToMany:
+        userSignalements:
+            targetEntity: Signalement
+            mappedBy: userSignalement
+            
+        articles:
+            targetEntity: Article
+            mappedBy: usersArticle
+            
+        userCommentaires:
+            targetEntity: Commentaire
+            mappedBy: commentairesUser
+    lifecycleCallbacks: {  }

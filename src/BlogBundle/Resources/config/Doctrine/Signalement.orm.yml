@@ -1,0 +1,27 @@
+BlogBundle\Entity\Signalement:
+    type: entity
+    table: null
+    repositoryClass: BlogBundle\Repository\SignalementRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        cause:
+            type: string
+            length: '255'
+        
+    manyToOne:
+        userSignalement:
+            targetEntity: User
+            inversedBy: userSignalements
+   
+        signalementsArticle:
+            targetEntity: Article
+            inversedBy: articleSignalements
+
+            
+    lifecycleCallbacks: { }
+    

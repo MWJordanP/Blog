@@ -1,0 +1,46 @@
+BlogBundle\Entity\Article:
+    type: entity
+    table: null
+    repositoryClass: BlogBundle\Repository\ArticleRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titre:
+            type: string
+            length: '255'
+            unique: true
+        date:
+            type: date
+            
+        dateModif:
+            type: date
+            
+        contenu:
+            type: text
+        
+    manyToMany:
+        users:
+            targetEntity: User
+            mappedBy: roles
+    manyToMany:
+        themes:
+            targetEntity: ThemeOfficiel
+            mappedBy: themeArticles
+    manyToOne:
+        usersArticle:
+            targetEntity: User
+            mappedBy: articles
+    oneToMany:
+        articleSignalements:
+            targetEntity: Signalement
+            mappedBy: signalementsArticle
+
+        articleCommentaire:
+            targetEntity: Commentaire
+            mappedBy: commentairesArticle            
+    lifecycleCallbacks: { }
+    

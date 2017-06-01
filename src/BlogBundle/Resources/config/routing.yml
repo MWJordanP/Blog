@@ -1,0 +1,24 @@
+blog_user:
+    resource: "@BlogBundle/Resources/config/routing/user.yml"
+    prefix:   /user
+
+blog_homepage:
+    path:     /
+    defaults: { _controller: BlogBundle:Default:index }
+    
+blog_themeofficiel:
+    resource: "@BlogBundle/Resources/config/routing/themeofficiel.yml"
+    prefix:   /themeofficiel
+
+blog_article:
+        resource: "@BlogBundle/Resources/config/routing/article.yml"
+        prefix:   /article
+blog_signalement:
+        resource: "@BlogBundle/Resources/config/routing/signalement.yml"
+        prefix:   /signalement
+blog_commentaire:
+        resource: "@BlogBundle/Resources/config/routing/commentaire.yml"
+        prefix:   /commentaire
+blog_role:
+        resource: "@BlogBundle/Resources/config/routing/role.yml"
+        prefix:   /role        

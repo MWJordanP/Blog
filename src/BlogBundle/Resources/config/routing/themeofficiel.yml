@@ -1,0 +1,24 @@
+themeofficiel_index:
+    path:     /
+    defaults: { _controller: "BlogBundle:ThemeOfficiel:index" }
+    methods:  GET
+
+themeofficiel_show:
+    path:     /{id}/show
+    defaults: { _controller: "BlogBundle:ThemeOfficiel:show" }
+    methods:  GET
+
+themeofficiel_new:
+    path:     /new
+    defaults: { _controller: "BlogBundle:ThemeOfficiel:new" }
+    methods:  [GET, POST]
+
+themeofficiel_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "BlogBundle:ThemeOfficiel:edit" }
+    methods:  [GET, POST]
+
+themeofficiel_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BlogBundle:ThemeOfficiel:delete" }
+    methods:  [GET, POST] 

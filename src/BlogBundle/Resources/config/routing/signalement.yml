@@ -1,0 +1,24 @@
+signalement_index:
+    path:     /
+    defaults: { _controller: "BlogBundle:Signalement:index" }
+    methods:  GET
+
+signalement_show:
+    path:     /{id}/show
+    defaults: { _controller: "BlogBundle:Signalement:show" }
+    methods:  GET
+
+signalement_new:
+    path:     /new
+    defaults: { _controller: "BlogBundle:Signalement:new" }
+    methods:  [GET, POST]
+
+signalement_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "BlogBundle:Signalement:edit" }
+    methods:  [GET, POST]
+
+signalement_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BlogBundle:Signalement:delete" }
+    methods:  [GET, POST]

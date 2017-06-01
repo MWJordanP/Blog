@@ -1,0 +1,15 @@
+<DOCTYPE>
+	<html>
+	<body>
+	<h1> Gestion Salle TP </h1>
+	<p>Gestion de <a href="{{ path('salle_index') }}"> Salle</a> </p>
+	{% if is_granted ('ROLE_ADMIN') %}
+	<p>Gestion de <a href="{{ path('ordinateur_index') }}"> Ordinaeur</a> </p>
+	{% endif %}
+	<p><a href="{{ path('logout') }}"> Logout</a> </p>
+
+	<p><i>Qui Sui-je ?
+		user : {{ app.user.username}}
+		roles: {{ roles }}</i></p>
+</body>
+</html>

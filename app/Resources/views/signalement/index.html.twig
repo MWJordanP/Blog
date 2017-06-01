@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Signalements list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Cause</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for signalement in signalements %}
+            <tr>
+                <td><a href="{{ path('signalement_show', { 'id': signalement.id }) }}">{{ signalement.id }}</a></td>
+                <td>{{ signalement.cause }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('signalement_show', { 'id': signalement.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('signalement_edit', { 'id': signalement.id }) }}">edit</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('signalement_delete', { 'id': signalement.id }) }}">delete</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('signalement_new') }}">Create a new signalement</a>
+        </li>
+    </ul>
+{% endblock %}

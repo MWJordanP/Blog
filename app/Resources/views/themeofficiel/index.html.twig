@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Themeofficiels list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Theme</th>
+                <th>Users par theme</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for themeOfficiel in themeOfficiels %}
+            <tr>
+                <td>{{ themeOfficiel.theme }} </td>
+                <td>{% for user in themeOfficiel.usersThemes %}
+                        {{ user.username }} 
+                        {{ themeOfficiel.userThemes.count }}
+                    {% endfor %}
+                </td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('themeofficiel_show', { 'id': themeOfficiel.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('themeofficiel_edit', { 'id': themeOfficiel.id }) }}">edit</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('themeofficiel_delete', { 'id': themeOfficiel.id }) }}">delete</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('themeofficiel_new') }}">Creer un nouveau theme</a>
+        </li>
+    </ul>
+{% endblock %}
