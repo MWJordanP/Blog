@@ -22,6 +22,11 @@ class Signalement
      */
     private $userSignalement;
 
+    /**
+     * @var \BlogBundle\Entity\Article
+     */
+    private $signalementsArticle;
+
 
     /**
      * Get id
@@ -80,10 +85,6 @@ class Signalement
     {
         return $this->userSignalement;
     }
-    /**
-     * @var \BlogBundle\Entity\Article
-     */
-    private $signalementsArticle;
 
 
     /**

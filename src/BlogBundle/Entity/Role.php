@@ -1,8 +1,8 @@
 <?php
 
 namespace BlogBundle\Entity;
-use Symfony\Component\Security\Core\Role\RoleInterface;
 
+use Symfony\Component\Security\Core\Role\RoleInterface;
 
 /**
  * Role
@@ -101,14 +101,14 @@ class Role implements RoleInterface
     }
 
 
-/*************************************************/
- /********************************************/
-        /*Ajouter les implements et Use*/
+    /*************************************************/
+    /********************************************/
+    /*Ajouter les implements et Use*/
 
-        
-    public function __toString() {
+    public function __toString()
+    {
 
         return $this->getRole();
     }
-    
+
 }

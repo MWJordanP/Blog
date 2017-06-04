@@ -1,0 +1,5 @@
+services:
+    app.manager.abstract:
+        class: AppBundle\Manager\AbstractManager
+        arguments:
+            - "@doctrine.orm.entity_manager"
