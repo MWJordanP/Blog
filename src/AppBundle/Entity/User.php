@@ -57,12 +57,20 @@ class User implements UserInterface
     protected $articles;
 
     /**
+     * @var Comment[]|ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="user")
+     */
+    protected $comments;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
-        $this->reports = new ArrayCollection();
-        $this->roles   = new ArrayCollection();
+        $this->reports  = new ArrayCollection();
+        $this->roles    = new ArrayCollection();
+        $this->comments = new ArrayCollection();
     }
 
     /**
@@ -199,5 +207,25 @@ class User implements UserInterface
     public function eraseCredentials()
     {
         return null;
+    }
+
+    /**
+     * @return Comment[]|ArrayCollection
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    /**
+     * @param Comment[]|ArrayCollection $comments
+     *
+     * @return User
+     */
+    public function setComments($comments)
+    {
+        $this->comments = $comments;
+
+        return $this;
     }
 }
