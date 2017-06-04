@@ -3,3 +3,8 @@ services:
         class: AppBundle\Manager\AbstractManager
         arguments:
             - "@doctrine.orm.entity_manager"
+
+    app.manager.article:
+        class: AppBundle\Manager\ArticleManager
+        arguments:
+            - "@doctrine.orm.entity_manager"

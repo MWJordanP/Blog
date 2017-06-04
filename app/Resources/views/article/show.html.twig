@@ -11,34 +11,34 @@
             </tr>
             <tr>
                 <th>Titre</th>
-                <td>{{ article.titre }}</td>
+                <td>{{ article.title }}</td>
             </tr>
             <tr>
                 <th>Date</th>
-                <td>{{ article.date }}</td>
+                <td>{{ article.createdAt|date('d-m-Y') }}</td>
             </tr>
             <tr>
                 <th>Datemodif</th>
-                <td>{{ article.dateModif }}</td>
+                <td>{{ article.updatedAt|date('d-m-Y') }}</td>
             </tr>
             <tr>
                 <th>Contenu</th>
-                <td>{{ article.contenu }}</td>
+                <td>{{ article.content }}</td>
             </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('article_index') }}">Back to the list</a>
+            <a href="{{ path('admin_article_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('article_edit', { 'id': article.id }) }}">Edit</a>
+            <a href="{{ path('admin_article_edit', { 'id': article.id }) }}">Edit</a>
         </li>
         <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
+            <a href="{{ path('admin_article_delete', {'id': article.id}) }}">
+                Supprimer
+            </a>
         </li>
     </ul>
 {% endblock %}

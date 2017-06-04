@@ -46,6 +46,13 @@ class Reporting
     protected $article;
 
     /**
+     * @var Comment
+     *
+     * @ORM\ManyToOne(targetEntity="Comment", inversedBy="reports")
+     */
+    protected $comment;
+
+    /**
      * @return int
      */
     public function getId()
@@ -121,6 +128,26 @@ class Reporting
     public function setArticle($article)
     {
         $this->article = $article;
+
+        return $this;
+    }
+
+    /**
+     * @return Comment
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    /**
+     * @param Comment $comment
+     *
+     * @return Reporting
+     */
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
 
         return $this;
     }

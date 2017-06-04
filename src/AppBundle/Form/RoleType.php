@@ -2,37 +2,34 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\Role;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+/**
+ * Class RoleType
+ */
 class RoleType extends AbstractType
 {
     /**
-     * {@inheritdoc}
+     * @param FormBuilderInterface $builder
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('role')->add('users');
+        $builder
+            ->add('role')
+            ->add('users');
     }
-    
+
     /**
-     * {@inheritdoc}
+     * @param OptionsResolver $resolver
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'BlogBundle\Entity\Role'
-        ));
+        $resolver->setDefaults([
+            'data_class' => Role::class,
+        ]);
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix()
-    {
-        return 'blogbundle_role';
-    }
-
-
 }

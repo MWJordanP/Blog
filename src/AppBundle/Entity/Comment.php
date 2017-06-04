@@ -7,12 +7,12 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
- * Class Article
+ * Class Comment
  *
  * @ORM\Entity()
- * @ORM\Table(name="articles")
+ * @ORM\Table(name="comments")
  */
-class Article
+class Comment
 {
     use TimestampableEntity;
 
@@ -28,45 +28,44 @@ class Article
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=255)
-     */
-    protected $title;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(type="text")
      */
     protected $content;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(type="integer")
+     */
+    protected $rate;
+
+    /**
      * @var Reporting[]|ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="Reporting", mappedBy="article")
+     * @ORM\OneToMany(targetEntity="Reporting", mappedBy="comment")
      */
     protected $reports;
 
     /**
      * @var User
      *
-     * @ORM\ManyToMany(targetEntity="User", inversedBy="roles")
+     * @ORM\ManyToOne(targetEntity="User")
      */
-    protected $users;
+    protected $user;
 
     /**
-     * @var Comment[]|ArrayCollection
+     * @var Article
      *
-     * @ORM\OneToMany(targetEntity="Comment", mappedBy="article")
+     * @ORM\ManyToOne(targetEntity="Article", inversedBy="comments")
      */
-    protected $comments;
+    protected $article;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->reports  = new ArrayCollection();
-        $this->comments = new ArrayCollection();
+        $this->reports = new ArrayCollection();
     }
 
     /**
@@ -80,31 +79,11 @@ class Article
     /**
      * @param int $id
      *
-     * @return Article
+     * @return Comment
      */
     public function setId($id)
     {
         $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * @param string $title
-     *
-     * @return Article
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
 
         return $this;
     }
@@ -120,11 +99,31 @@ class Article
     /**
      * @param string $content
      *
-     * @return Article
+     * @return Comment
      */
     public function setContent($content)
     {
         $this->content = $content;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRate()
+    {
+        return $this->rate;
+    }
+
+    /**
+     * @param int $rate
+     *
+     * @return Comment
+     */
+    public function setRate($rate)
+    {
+        $this->rate = $rate;
 
         return $this;
     }
@@ -140,7 +139,7 @@ class Article
     /**
      * @param Reporting[]|ArrayCollection $reports
      *
-     * @return Article
+     * @return Comment
      */
     public function setReports($reports)
     {
@@ -152,19 +151,39 @@ class Article
     /**
      * @return User
      */
-    public function getUsers()
+    public function getUser()
     {
-        return $this->users;
+        return $this->user;
     }
 
     /**
-     * @param User $users
+     * @param User $user
      *
+     * @return Comment
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
      * @return Article
      */
-    public function setUsers($users)
+    public function getArticle()
     {
-        $this->users = $users;
+        return $this->article;
+    }
+
+    /**
+     * @param Article $article
+     *
+     * @return Comment
+     */
+    public function setArticle($article)
+    {
+        $this->article = $article;
 
         return $this;
     }

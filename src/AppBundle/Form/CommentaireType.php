@@ -25,14 +25,4 @@ class CommentaireType extends AbstractType
             'data_class' => 'BlogBundle\Entity\Commentaire'
         ));
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix()
-    {
-        return 'blogbundle_commentaire';
-    }
-
-
 }
