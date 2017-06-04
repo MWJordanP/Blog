@@ -8,3 +8,28 @@ services:
         class: AppBundle\Manager\ArticleManager
         arguments:
             - "@doctrine.orm.entity_manager"
+
+    app.manager.comment:
+        class: AppBundle\Manager\CommentManager
+        arguments:
+            - "@doctrine.orm.entity_manager"
+
+    app.manager.official_theme:
+        class: AppBundle\Manager\OfficialThemeManager
+        arguments:
+            - "@doctrine.orm.entity_manager"
+
+    app.manager.user_theme:
+        class: AppBundle\Manager\UserManager
+        arguments:
+            - "@doctrine.orm.entity_manager"
+
+    app.manager.role:
+        class: AppBundle\Manager\RoleManager
+        arguments:
+            - "@doctrine.orm.entity_manager"
+
+    app.manager.user:
+        class: AppBundle\Manager\UserManager
+        arguments:
+            - "@doctrine.orm.entity_manager"

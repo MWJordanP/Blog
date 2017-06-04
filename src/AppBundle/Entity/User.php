@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
  * Class User
@@ -14,6 +15,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User implements UserInterface
 {
+    use TimestampableEntity;
+
     /**
      * @var int
      *
