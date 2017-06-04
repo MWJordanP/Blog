@@ -49,9 +49,9 @@ class Article
     /**
      * @var User
      *
-     * @ORM\ManyToMany(targetEntity="User", inversedBy="roles")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="articles")
      */
-    protected $users;
+    protected $user;
 
     /**
      * @var Comment[]|ArrayCollection
@@ -152,19 +152,39 @@ class Article
     /**
      * @return User
      */
-    public function getUsers()
+    public function getUser()
     {
-        return $this->users;
+        return $this->user;
     }
 
     /**
-     * @param User $users
+     * @param User $user
      *
      * @return Article
      */
-    public function setUsers($users)
+    public function setUser($user)
     {
-        $this->users = $users;
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Comment[]|ArrayCollection
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    /**
+     * @param Comment[]|ArrayCollection $comments
+     *
+     * @return Article
+     */
+    public function setComments($comments)
+    {
+        $this->comments = $comments;
 
         return $this;
     }

@@ -52,7 +52,9 @@ class User implements UserInterface
     protected $roles;
 
     /**
-     * @var ArrayCollection
+     * @var Article[]|ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Article", mappedBy="user")
      */
     protected $articles;
 
